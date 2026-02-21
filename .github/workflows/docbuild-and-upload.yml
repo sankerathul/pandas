@@ -97,6 +97,9 @@ jobs:
     - name: Build website
       run: python web/pandas_web.py web/pandas --target-path=web/build
 
+    - name: Check pandas version
+      run: micromamba run -n test python -c "import pandas; print(pandas.__version__)"
+
     - name: Build documentation
       run: doc/make.py --warnings-are-errors
 
@@ -113,9 +116,6 @@ jobs:
         echo "=== SPHINX ERROR LOG ==="
         cat /tmp/sphinx-err-*.log
         echo "=== END OF LOG ==="
-
-    - name: Check pandas version
-      run: micromamba run -n test python -c "import pandas; print(pandas.__version__)"
 
     - name: Install ssh key
       run: |
