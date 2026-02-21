@@ -107,6 +107,13 @@ jobs:
     - name: Build documentation zip
       run: doc/make.py zip_html
 
+    - name: Show Sphinx error log
+      if: failure()
+      run: |
+        echo "=== SPHINX ERROR LOG ==="
+        cat /tmp/sphinx-err-*.log
+        echo "=== END OF LOG ==="
+
     - name: Install ssh key
       run: |
         mkdir -m 700 -p ~/.ssh
