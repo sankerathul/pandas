@@ -114,6 +114,9 @@ jobs:
         cat /tmp/sphinx-err-*.log
         echo "=== END OF LOG ==="
 
+    - name: Check pandas version
+      run: micromamba run -n test python -c "import pandas; print(pandas.__version__)"
+
     - name: Install ssh key
       run: |
         mkdir -m 700 -p ~/.ssh
