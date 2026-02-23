@@ -43,6 +43,8 @@ integer **codes**, and the level **names**:
 
 .. ipython:: python
 
+   import pandas as pd
+
    index = pd.MultiIndex.from_product(
        [range(3), ["one", "two"]], names=["first", "second"]
    )
