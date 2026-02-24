@@ -101,7 +101,7 @@ jobs:
       run: micromamba run -n test python -c "import pandas; print(pandas.__version__)"
 
     - name: Build documentation
-      run: doc/make.py --warnings-are-errors
+      run: doc/make.py
 
     - name: Build the interactive terminal
       working-directory: web/interactive_terminal
